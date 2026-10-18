@@ -1,0 +1,23 @@
+{
+  "name": "my-plugins",
+  "description": "我自己写的 ZCode 插件",
+  "owner": {
+    "name": "Yedou"
+  },
+  "plugins": [
+    {
+      "name": "instrument",
+      "source": "./instrument",
+      "version": "0.6.1",
+      "description": "Instrument cluster for ZCode model replies: a session-sidebar panel with per-reply first-token latency, generation speed, token usage, reply history, model comparison, tool time and failure stats — plus a /metrics command and a metrics tool.",
+      "displayName": "Instrument",
+      "displayName_i18n": {
+        "zh-CN": "仪表盘"
+      },
+      "description_i18n": {
+        "zh-CN": "模型回复仪表盘：本轮/会话双视角、时间构成、上下文、回复列表、模型对比、健康度，以及 CommandCode 订阅额度（5h/周/月）。"
+      },
+      "category": "developer-tools"
+    }
+  ]
+}

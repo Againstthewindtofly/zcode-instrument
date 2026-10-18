@@ -1,0 +1,64 @@
+{
+  "name": "instrument",
+  "version": "0.6.1",
+  "description": "Instrument cluster for ZCode model replies: a session-sidebar panel with per-reply first-token latency, generation speed, token usage, reply history, model comparison, tool time and failure stats — plus a /metrics command and a metrics tool.",
+  "description_i18n": {
+    "zh-CN": "模型回复仪表盘：会话侧栏面板显示每条回复的首字延迟、生成速度、token 用量、回复列表、模型对比、工具耗时与失败重试；另有 /metrics 命令。"
+  },
+  "author": {
+    "name": "Yedou"
+  },
+  "license": "MIT",
+  "skills": "./skills",
+  "commands": "./commands",
+  "userConfig": {
+    "providerNames": {
+      "type": "string",
+      "title": "Provider 显示名覆盖（可选）",
+      "description": "通常不需要填：插件会自动读取 ZCode 的 provider 配置显示名字。只有想改名或文件名解析不到时才用，格式 id=名字，逗号分隔，例如 new-provider-2=GOAT(LiteLLM 新加坡)。",
+      "default": ""
+    },
+    "contextWindows": {
+      "type": "string",
+      "title": "上下文窗口覆盖（可选）",
+      "description": "通常不需要填：会按内置规则和 provider 配置自动识别。只有识别错了才设，格式 模型=窗口大小，逗号分隔，例如 deepseek/deepseek-v4.1-flash=800000；也可写成 provider:模型=窗口。",
+      "default": ""
+    },
+    "commandCodeKey": {
+      "type": "string",
+      "title": "CommandCode API key（可选）",
+      "description": "用于查询 GOAT 订阅额度的 user_ 开头的 key。通常不用填：会自动从 ZCode 的 provider 配置里找 api.commandcode.ai 对应的 provider。",
+      "default": ""
+    }
+  },
+  "mcpServers": {
+    "instrument": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/mcp/server.mjs"
+      ],
+      "cwd": "${CLAUDE_PROJECT_DIR}",
+      "env": {
+        "INSTRUMENT_PROVIDER_NAMES": "${user_config.providerNames}",
+        "INSTRUMENT_CONTEXT_WINDOWS": "${user_config.contextWindows}",
+        "INSTRUMENT_COMMANDCODE_KEY": "${user_config.commandCodeKey}"
+      }
+    }
+  },
+  "ui": {
+    "surfaces": [
+      {
+        "id": "metrics",
+        "title": {
+          "zh-CN": "仪表盘",
+          "en-US": "Instrument"
+        },
+        "icon": "gauge",
+        "server": "instrument",
+        "resourceUri": "ui://instrument/panel.html",
+        "availability": "session"
+      }
+    ]
+  }
+}

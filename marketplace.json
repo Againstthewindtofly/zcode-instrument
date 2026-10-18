@@ -17,7 +17,10 @@
       "description_i18n": {
         "zh-CN": "模型回复仪表盘：本轮/会话双视角、时间构成、上下文、回复列表、模型对比、健康度，以及 CommandCode 订阅额度（5h/周/月）。"
       },
-      "category": "developer-tools"
+      "category": "developer-tools",
+      "icon": "https://raw.githubusercontent.com/Againstthewindtofly/zcode-instrument/main/instrument/assets/icon.svg",
+      "homepage": "https://github.com/Againstthewindtofly/zcode-instrument",
+      "author": "Yedou"
     }
   ]
 }

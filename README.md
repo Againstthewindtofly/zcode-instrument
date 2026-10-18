@@ -39,8 +39,8 @@ Also included:
 **方式一：作为市场添加（推荐）**
 
 ZCode → **插件市场 / Plugin Marketplace → 添加 → 添加插件市场 / Add Plugin Marketplace** →
-粘贴本仓库地址 `https://github.com/<owner>/<repo>`（或本地目录）→ 在 **个人 / Personal** 里
-找到 **仪表盘 (Instrument)** → 安装 → 新建会话。
+粘贴本仓库地址 `https://github.com/Againstthewindtofly/zcode-instrument`（或本地目录）→ 在
+**个人 / Personal** 里找到 **仪表盘 (Instrument)** → 安装 → 新建会话。
 
 **方式二：本地开发**
 
